@@ -49,9 +49,9 @@ function HomePage() {
 
             <div className={styles.heroButtons}>
               <a href="#homeCards">Почему выбирают нас</a>
-              <button onClick={() => setModal(true)} className={styles.heroBtnSecondary}>
-                Оставить отзыв
-              </button>
+              <NavLink to="/services" className={styles.heroBtnSecondary}>
+                Записаться
+              </NavLink>
             </div>
           </div>
 
@@ -218,6 +218,15 @@ function HomePage() {
               <div>
                 <label>Email:</label>
                 <input required type="email" />
+              </div>
+
+              <div>
+                <label>Телефон:</label>
+                <input
+                  required
+                  type="tel"
+                  placeholder="+996 707 360 005"
+                />
               </div>
 
               <div className={styles.message}>

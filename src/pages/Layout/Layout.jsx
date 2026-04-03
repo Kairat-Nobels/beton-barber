@@ -8,6 +8,7 @@ import { getService } from '../../redux/slices/servicesSlice'
 import { getReviews } from '../../redux/slices/reviewsSlice'
 import { getDoctors } from '../../redux/slices/doctorsSlice'
 import logo from '../../assets/logo.png'
+
 function Layout() {
     const [modal, setModal] = useState(false)
     const [burger, setBurger] = useState(false)
@@ -70,7 +71,7 @@ function Layout() {
                     <nav className={styles.navbar}>
                         <div className={styles.left}>
                             <NavLink className={styles.logo} to="/">
-                                <img src={logo} alt="logo" className="logo" />
+                                <img src={logo} alt="BETON Barbershop" />
                                 <div className={styles.logoText}>
                                     <h1>BETON</h1>
                                     <p>barbershop</p>
@@ -147,19 +148,36 @@ function Layout() {
 
                                 {burger && (
                                     <div className={styles.burgerContent}>
+                                        <button
+                                            className={styles.mobileCloseBtn}
+                                            onClick={() => setBurger(false)}
+                                            aria-label="Закрыть меню"
+                                        >
+                                            ×
+                                        </button>
+
                                         <div className={styles.mobileTop}>
-                                            <div className={styles.mobileLogo}>
-                                                <div className={styles.logoMark}>B</div>
-                                                <div className={styles.logoText}>
+                                            <NavLink
+                                                to="/"
+                                                onClick={() => setBurger(false)}
+                                                className={styles.mobileLogo}
+                                            >
+                                                <img
+                                                    src={logo}
+                                                    alt="BETON Barbershop"
+                                                    className={styles.mobileLogoImg}
+                                                />
+                                                <div className={styles.mobileLogoText}>
                                                     <h1>BETON</h1>
                                                     <p>barbershop</p>
                                                 </div>
-                                            </div>
+                                            </NavLink>
 
-                                            <div className={styles.tel}>
-                                                <a href="tel:+996700123456">
-                                                    +996 700 123 456
+                                            <div className={styles.mobileContacts}>
+                                                <a href="tel:+996707360005">
+                                                    +996 707 360 005
                                                 </a>
+                                                <span>Ежедневно с 10:00 до 22:00</span>
                                             </div>
                                         </div>
 
@@ -211,12 +229,21 @@ function Layout() {
 
                                             <li>
                                                 <button
+                                                    className={styles.mobileBookBtn}
+                                                    onClick={() => {
+                                                        navigate('/services')
+                                                        setBurger(false)
+                                                    }}
+                                                >
+                                                    Записаться
+                                                </button>
+                                            </li>
+
+                                            <li>
+                                                <button
                                                     className={styles.mobileAdminBtn}
                                                     onClick={() => {
-                                                        if (
-                                                            localStorage.getItem('admin') ===
-                                                            'true'
-                                                        ) {
+                                                        if (localStorage.getItem('admin') === 'true') {
                                                             navigate('/admin')
                                                         } else {
                                                             setModal(true)
@@ -228,10 +255,6 @@ function Layout() {
                                                 </button>
                                             </li>
                                         </ul>
-
-                                        <p className={styles.mobileWorkTime}>
-                                            Ежедневно с 10:00 до 22:00
-                                        </p>
                                     </div>
                                 )}
                             </div>
