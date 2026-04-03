@@ -1,0 +1,674 @@
+.hello {
+    width: 100%;
+    background:
+        linear-gradient(rgba(8, 8, 8, 0.78), rgba(8, 8, 8, 0.86)),
+        linear-gradient(135deg, #0f0f0f 0%, #171717 45%, #222222 100%);
+    border-bottom: 1px solid rgba(212, 175, 55, 0.12);
+}
+
+.helloInner {
+    max-width: 1240px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 44px;
+    min-height: 720px;
+    padding: 70px 20px;
+}
+
+.left {
+    width: 50%;
+}
+
+.right {
+    width: 50%;
+    min-height: 560px;
+    border-radius: 28px;
+    overflow: hidden;
+    box-shadow: 0 24px 70px rgba(0, 0, 0, 0.38);
+    border: 1px solid rgba(212, 175, 55, 0.14);
+}
+
+.right img {
+    width: 100%;
+    height: 100%;
+    min-height: 560px;
+    object-fit: cover;
+    display: block;
+}
+
+.heroLabel {
+    display: inline-block;
+    margin-bottom: 18px;
+    color: #d4af37;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.26em;
+    text-transform: uppercase;
+}
+
+.hello h1 {
+    color: #ffffff;
+    font-size: 62px;
+    font-weight: 800;
+    line-height: 1.05;
+    letter-spacing: 0.04em;
+    text-align: left;
+    text-transform: uppercase;
+    max-width: 640px;
+}
+
+.hello p {
+    margin-top: 26px;
+    color: #d0d0d0;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 1.85;
+    text-align: left;
+    max-width: 640px;
+}
+
+.hello p span {
+    color: #d4af37;
+    font-weight: 700;
+}
+
+.heroButtons {
+    margin-top: 34px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.left a {
+    border-radius: 12px;
+    color: #111111;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-align: center;
+    background: #d4af37;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px 28px;
+    transition: 0.3s;
+    border: 1px solid #d4af37;
+    min-width: 230px;
+}
+
+.left a:hover {
+    transform: translateY(-2px);
+    background: transparent;
+    color: #d4af37;
+}
+
+.heroBtnSecondary {
+    border-radius: 12px;
+    color: #d4af37;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-align: center;
+    background: transparent;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px 28px;
+    transition: 0.3s;
+    border: 1px solid #d4af37;
+    min-width: 220px;
+}
+
+.heroBtnSecondary:hover {
+    transform: translateY(-2px);
+    background: #d4af37;
+    color: #111111;
+}
+
+.about {
+    margin-top: 120px;
+}
+
+.aboutHead {
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+.aboutLabel {
+    display: inline-block;
+    margin-bottom: 14px;
+    color: #d4af37;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+}
+
+.aboutTitle {
+    color: #ffffff;
+    font-size: 46px;
+    font-weight: 800;
+    line-height: 1.12;
+    letter-spacing: 0.02em;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.aboutDiv {
+    margin-top: 44px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 48px;
+}
+
+.aboutText {
+    width: 52%;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.aboutText p {
+    font-size: 17px;
+    line-height: 1.9;
+    font-weight: 500;
+    color: #cfcfcf;
+    letter-spacing: 0.01em;
+}
+
+.aboutList {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(180px, 1fr));
+    gap: 14px 16px;
+    margin-top: 10px;
+    margin-bottom: 8px;
+}
+
+.aboutItem {
+    padding: 14px 16px;
+    background: #181818;
+    color: #f3f3f3;
+    border-radius: 14px;
+    border: 1px solid rgba(212, 175, 55, 0.14);
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.5;
+}
+
+.aboutLine {
+    width: 48%;
+    border-radius: 28px;
+    overflow: hidden;
+    border: 1px solid rgba(212, 175, 55, 0.12);
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.18);
+    min-height: 560px;
+}
+
+.aboutLine img {
+    width: 100%;
+    height: 100%;
+    min-height: 560px;
+    object-fit: cover;
+    display: block;
+}
+
+.moreBtn {
+    display: inline-block;
+    width: fit-content;
+    font-size: 15px;
+    font-weight: 700;
+    color: #d4af37;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-top: 6px;
+    transition: 0.3s;
+}
+
+.moreBtn:hover {
+    color: #be9b2b;
+}
+
+.reviewsModal {
+    margin-top: 42px;
+    justify-content: center;
+    gap: 24px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.docLink {
+    width: 320px;
+    margin: 30px auto 0;
+    transition: 0.3s;
+    border-radius: 12px;
+    background: #d4af37;
+    border: 1px solid #d4af37;
+    overflow: hidden;
+}
+
+.docLink a {
+    padding: 15px 22px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 18px;
+}
+
+.docLink:hover {
+    transform: translateY(-3px);
+    background: #be9b2b;
+}
+
+.docLink div {
+    width: 24px;
+}
+
+.docLink div img {
+    width: 100%;
+    display: block;
+}
+
+.docLink p {
+    color: #111111;
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 1.3;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.reviewsModal button {
+    padding: 15px 30px;
+    line-height: 1.2;
+    font-size: 15px;
+    font-weight: 700;
+    color: #d4af37;
+    border-radius: 12px;
+    outline: none;
+    border: 1px solid #d4af37;
+    background: transparent;
+    transition: 0.3s;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+}
+
+.reviewsModal button:hover {
+    transform: translateY(-2px);
+    background: #d4af37;
+    color: #111111;
+}
+
+.doctors {
+    margin-top: 120px;
+}
+
+.doctors .cardsDoc {
+    margin-top: 36px;
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    gap: 24px;
+}
+
+.reviews {
+    padding: 36px 0;
+    max-width: 1400px;
+    margin: 100px auto 0;
+    background: linear-gradient(180deg, rgba(24, 24, 24, 0.98), rgba(18, 18, 18, 0.98));
+    border-top: 1px solid rgba(212, 175, 55, 0.1);
+    border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+}
+
+.feedBack {
+    margin-top: 110px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    gap: 28px;
+    margin-bottom: 36px;
+}
+
+.maps {
+    width: 54%;
+    min-height: 560px;
+    border-radius: 24px;
+    overflow: hidden;
+    border: 1px solid rgba(212, 175, 55, 0.12);
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.16);
+    background: #131313;
+}
+
+.maps iframe {
+    width: 100%;
+    height: 100%;
+    min-height: 560px;
+    border: none;
+    display: block;
+}
+
+.sendMes {
+    width: 46%;
+    padding: 34px 28px;
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    border-radius: 24px;
+    background: #161616;
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.16);
+}
+
+.sendMes h2 {
+    text-align: center;
+    color: #ffffff;
+    font-size: 34px;
+    font-weight: 800;
+    line-height: 1.15;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.sendMes p {
+    color: #bfbfbf;
+    font-size: 16px;
+    line-height: 1.7;
+    margin-top: 14px;
+    font-weight: 500;
+    text-align: center;
+}
+
+.sendMes form {
+    width: 100%;
+    margin: 34px auto 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 22px;
+}
+
+.sendMes form div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 18px;
+    width: 100%;
+    max-width: 420px;
+    margin: 0 auto;
+}
+
+.sendMes form label {
+    min-width: 110px;
+    font-weight: 600;
+    color: #d4af37;
+    font-size: 15px;
+}
+
+.sendMes form div input {
+    width: 100%;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 14px 16px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 12px;
+    color: #f2f2f2;
+    background: #202020;
+}
+
+.sendMes form .message {
+    width: 100%;
+    max-width: 420px;
+    align-items: flex-start;
+}
+
+.sendMes form div textarea {
+    width: 100%;
+    font-size: 14px;
+    resize: vertical;
+    min-height: 150px;
+    padding: 14px 16px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 12px;
+    color: #f2f2f2;
+    background: #202020;
+}
+
+.sendMes form input:focus,
+.sendMes form textarea:focus {
+    outline: none;
+    border: 1px solid #d4af37;
+    background: #252525;
+}
+
+.formMes button {
+    border-radius: 12px;
+    background: #d4af37;
+    transition: 0.3s;
+    color: #111111;
+    width: 100%;
+    max-width: 420px;
+    height: 58px;
+    font-size: 15px;
+    font-weight: 700;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    border: 1px solid #d4af37;
+}
+
+.formMes button:hover {
+    background: transparent;
+    color: #d4af37;
+}
+
+@media (max-width: 1200px) {
+    .helloInner {
+        width: 100%;
+        padding: 60px 20px;
+    }
+
+    .hello h1 {
+        font-size: 52px;
+    }
+}
+
+@media (max-width: 1100px) {
+    .helloInner {
+        gap: 30px;
+    }
+
+    .hello h1 {
+        font-size: 46px;
+        line-height: 1.1;
+    }
+
+    .hello p {
+        font-size: 17px;
+        line-height: 1.8;
+    }
+
+    .right,
+    .left {
+        width: 50%;
+    }
+}
+
+@media (max-width: 1000px) {
+    .feedBack {
+        flex-direction: column-reverse;
+    }
+
+    .aboutDiv {
+        flex-direction: column-reverse;
+        gap: 30px;
+    }
+
+    .aboutText,
+    .aboutLine,
+    .sendMes,
+    .maps {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .aboutLine,
+    .aboutLine img,
+    .maps,
+    .maps iframe {
+        min-height: 420px;
+    }
+}
+
+@media (max-width: 900px) {
+    .doctors .cardsDoc {
+        flex-direction: column;
+        gap: 24px;
+    }
+
+    .helloInner {
+        min-height: auto;
+        padding: 56px 18px;
+    }
+}
+
+@media (max-width: 830px) {
+    .right {
+        display: none;
+    }
+
+    .left {
+        width: 100%;
+    }
+
+    .hello h1,
+    .hello p {
+        max-width: 100%;
+    }
+
+    .hello h1 {
+        font-size: 40px;
+    }
+}
+
+@media (max-width: 700px) {
+    .left {
+        padding: 0 4px;
+    }
+
+    .heroButtons,
+    .reviewsModal {
+        gap: 18px;
+    }
+
+    .hello h1 {
+        font-size: 34px;
+    }
+
+    .about,
+    .doctors,
+    .reviews,
+    .feedBack {
+        margin-top: 85px;
+    }
+
+    .aboutTitle {
+        font-size: 34px;
+    }
+
+    .aboutList {
+        grid-template-columns: 1fr;
+    }
+
+    .aboutText p {
+        font-size: 16px;
+        line-height: 1.8;
+    }
+}
+
+@media (max-width: 560px) {
+    .sendMes {
+        padding: 24px 16px;
+    }
+
+    .sendMes form div,
+    .sendMes form .message {
+        flex-direction: column;
+        align-items: flex-start;
+        max-width: 100%;
+    }
+
+    .sendMes form label {
+        min-width: auto;
+    }
+
+    .docLink {
+        width: 100%;
+        max-width: 320px;
+    }
+
+    .heroButtons>* {
+        width: 100%;
+    }
+
+    .left a,
+    .heroBtnSecondary {
+        width: 100%;
+        min-width: auto;
+    }
+}
+
+@media (max-width: 475px) {
+
+    .doctors h2,
+    .sendMes h2,
+    .aboutTitle {
+        font-size: 26px;
+        line-height: 1.25;
+        text-align: center;
+    }
+
+    .reviewsModal {
+        flex-direction: column;
+    }
+
+    .hello h1 {
+        font-size: 30px;
+    }
+
+    .hello p {
+        font-size: 16px;
+    }
+
+    .heroLabel,
+    .aboutLabel {
+        font-size: 12px;
+    }
+
+    .aboutLine,
+    .aboutLine img,
+    .maps,
+    .maps iframe {
+        min-height: 300px;
+    }
+}
+
+@media (max-width: 380px) {
+    .helloInner {
+        padding: 42px 14px;
+    }
+
+    .hello h1 {
+        font-size: 27px;
+    }
+
+    .docLink p {
+        font-size: 14px;
+    }
+}

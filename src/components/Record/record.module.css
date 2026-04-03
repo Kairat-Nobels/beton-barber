@@ -1,0 +1,40 @@
+.record {
+    border-top: 3px solid #D9B79A;
+    display: flex;
+    gap: 10px;
+    /* justify-content: stretch; */
+    width: 100%;
+}
+
+.record p {
+    margin-top: 5px;
+    padding: 10px;
+    border-right: 3px solid #D9B79A;
+    /* border-left: 3px solid #00A574; */
+    /* border: 3px solid #175b90e9; */
+    font-size: 16px;
+    font-weight: 600;
+    width: 20%;
+}
+
+.record .div {
+    display: flex;
+    align-items: center;
+}
+
+.record .button {
+    margin: 0;
+    padding: 10px 30px;
+    line-height: 18px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #ffffff;
+    background: #cd414d;
+    border-radius: 15px;
+    transition: .3s;
+}
+
+.record button:hover {
+    transform: scale(1.04);
+    filter: brightness(110%);
+}

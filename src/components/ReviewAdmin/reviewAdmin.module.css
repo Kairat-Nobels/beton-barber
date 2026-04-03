@@ -1,0 +1,39 @@
+.review {
+    display: flex;
+    gap: 10px;
+    width: 100%;
+}
+
+.review .p {
+    padding: 10px;
+    border: 3px solid #D9B79A;
+    font-size: 16px;
+    font-weight: 600;
+    width: 15%;
+}
+
+.review .comment {
+    width: 60%;
+}
+
+.review div {
+    display: flex;
+    align-items: center;
+}
+
+.review .button {
+    margin: 0;
+    padding: 10px 30px;
+    line-height: 18px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #ffffff;
+    background: #cd414d;
+    border-radius: 15px;
+    transition: .3s;
+}
+
+.review .button:hover {
+    transform: scale(1.04);
+    filter: brightness(110%);
+}

@@ -1,0 +1,17 @@
+.messageError p {
+    margin-top: 15px;
+    font-size: 18px;
+    font-weight: 600;
+    color: #404040;
+}
+
+.messageError {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+}
+
+.messageError h2 {
+    font-size: 20px;
+}

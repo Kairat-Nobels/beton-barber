@@ -1,0 +1,70 @@
+.page {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 50px 16px 60px;
+}
+
+.head {
+    text-align: center;
+    max-width: 780px;
+    margin: 0 auto 38px;
+}
+
+.label {
+    display: inline-block;
+    margin-bottom: 14px;
+    color: #d4af37;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+}
+
+.text {
+    margin-top: 18px;
+    color: #c8c8c8;
+    font-size: 17px;
+    line-height: 1.8;
+    font-weight: 500;
+}
+
+.doctors {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    gap: 28px 22px;
+    width: 100%;
+    margin: 0 auto;
+    flex-wrap: wrap;
+    padding-bottom: 10px;
+}
+
+@media (max-width: 768px) {
+    .page {
+        padding: 40px 12px 50px;
+    }
+
+    .head {
+        margin-bottom: 30px;
+    }
+
+    .text {
+        font-size: 16px;
+        line-height: 1.75;
+    }
+
+    .doctors {
+        gap: 22px 18px;
+    }
+}
+
+@media (max-width: 470px) {
+    .label {
+        font-size: 12px;
+    }
+
+    .text {
+        font-size: 15px;
+        line-height: 1.7;
+    }
+}

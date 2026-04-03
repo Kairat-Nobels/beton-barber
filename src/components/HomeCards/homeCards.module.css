@@ -1,0 +1,152 @@
+.cardPage {
+    padding-top: 40px;
+}
+
+.cardPage h2 {
+    margin-top: 20px;
+    color: #111111;
+    font-size: 38px;
+    font-weight: 800;
+    line-height: 1.2;
+    letter-spacing: 0.04em;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.cards {
+    margin-top: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 28px 22px;
+    width: 100%;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 16px;
+    width: 380px;
+    min-height: 280px;
+    position: relative;
+    padding: 26px 22px 24px;
+    background: #181818;
+    border-radius: 18px;
+    border: 1px solid rgba(212, 175, 55, 0.14);
+    box-shadow: 0 14px 32px rgba(0, 0, 0, 0.14);
+    transition: 0.3s;
+    overflow: hidden;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(212, 175, 55, 0.45);
+    box-shadow: 0 22px 42px rgba(0, 0, 0, 0.22);
+}
+
+.card h3 {
+    color: #d4af37;
+    font-size: 22px;
+    width: 78%;
+    font-weight: 700;
+    line-height: 1.35;
+    letter-spacing: 0.02em;
+    text-align: left;
+    text-transform: uppercase;
+}
+
+.card p {
+    color: #d2d2d2;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.75;
+    letter-spacing: 0.01em;
+    text-align: left;
+}
+
+.card div {
+    position: absolute;
+    top: 22px;
+    right: 18px;
+    width: 62px;
+    height: 62px;
+    border-radius: 14px;
+    background: rgba(212, 175, 55, 0.08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+}
+
+.card div img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+@media (max-width: 768px) {
+    .cardPage {
+        padding-top: 20px;
+    }
+
+    .cardPage h2 {
+        font-size: 30px;
+    }
+
+    .cards {
+        margin-top: 30px;
+        gap: 20px;
+    }
+
+    .card {
+        width: 100%;
+        max-width: 420px;
+        min-height: auto;
+    }
+}
+
+@media (max-width: 475px) {
+    .cardPage h2 {
+        font-size: 24px;
+        line-height: 1.3;
+    }
+
+    .card {
+        padding: 22px 18px 20px;
+        border-radius: 16px;
+    }
+
+    .card h3 {
+        width: 75%;
+        font-size: 18px;
+    }
+
+    .card p {
+        font-size: 14px;
+        line-height: 1.65;
+    }
+
+    .card div {
+        width: 54px;
+        height: 54px;
+        top: 18px;
+        right: 14px;
+    }
+}
+
+.icon {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 38px;
+    height: 38px;
+    color: #d4af37;
+    opacity: 0.9;
+    transition: 0.3s;
+}
+
+.card:hover .icon {
+    transform: scale(1.1);
+    opacity: 1;
+}

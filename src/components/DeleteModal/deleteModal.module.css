@@ -1,0 +1,80 @@
+.window {
+    position: fixed;
+    background: #00000055;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.form {
+    max-width: 400px;
+    min-width: 300px;
+    background-color: #f2f2f2;
+    border-radius: 20px;
+    padding: 40px 20px 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    position: relative;
+}
+
+
+.form button {
+    border: none;
+    padding: 10px 20px;
+    background: #757E85;
+    border-radius: 10px;
+    cursor: pointer;
+    color: #fff;
+    font-size: 20px;
+}
+
+.form .closeBtn {
+    position: absolute;
+    right: -10px;
+    top: -10px;
+    z-index: 2;
+    background: #040404;
+}
+
+.form .loading {
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    width: 90%;
+}
+
+.form .quiz {
+    display: block;
+    text-align: center;
+}
+
+.quiz h2 {
+    font-size: 18px;
+    line-height: 26px;
+}
+
+.quizActions {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    align-items: center;
+}
+
+.quizActions .quizActionsBtn {
+    background: #D9B79A;
+    padding: 10px 24px;
+}
+
+.form .loading .p {
+    display: block;
+    margin-top: 15px;
+    font-weight: 600;
+}

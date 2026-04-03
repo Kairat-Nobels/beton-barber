@@ -1,0 +1,214 @@
+.head {
+    display: flex;
+    width: 60%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.head h2 {
+    font-size: 32px;
+    line-height: 38px;
+    text-align: center;
+}
+
+.head button {
+    font-weight: 700;
+    color: #fff;
+    border: none;
+    outline: none;
+    margin-top: 30px;
+    border-radius: 5px;
+    padding: 12px 25px;
+    font-size: 18px;
+    background: rgb(49, 49, 49);
+    transition: .3s;
+    margin-top: 20px;
+}
+
+.head button:hover {
+    transform: scale(1.14);
+    filter: brightness(120%);
+}
+
+.sort {
+    gap: 20px;
+    width: 50%;
+    margin: 30px auto 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.sort button {
+    background: transparent;
+    border: none;
+    padding: 12px 20px;
+    color: #1d1d1d;
+    font-weight: 550;
+    text-decoration: none;
+    font-size: 18px;
+    line-height: 22px;
+    transition: .37s;
+    display: inline-block;
+    white-space: nowrap;
+}
+
+.sort button:hover {
+    transform: scale(1.102);
+    font-weight: 600;
+}
+
+.sort .active {
+    font-size: 20px;
+    font-weight: 600;
+    color: #ffffff;
+    position: relative;
+    background: #eaab78;
+    border-radius: 10px;
+    outline: none;
+    border: none;
+}
+
+.sort button:hover::after {
+    position: absolute;
+    top: 40px;
+    content: '';
+    height: 3px;
+    border-radius: 5px;
+    left: 10%;
+    width: 80%;
+    background: #eaab78;
+}
+
+.sort .active:hover {
+    transform: none;
+    background: #eaab78;
+    border-radius: 10px;
+}
+
+.sort .active:hover::after {
+    display: none;
+}
+
+.reviewTable,
+.recordTable {
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top: 30px;
+    padding: 10px 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    border: 3px solid #D9B79A;
+    color: #313131;
+}
+
+.headTable {
+    margin-left: 8px;
+    display: flex;
+    width: 90%;
+}
+
+.headTable p {
+    font-size: 18px;
+    line-height: 26px;
+    font-weight: 600;
+    width: 20%;
+}
+
+.headT {
+    margin-left: 16px;
+    display: flex;
+    width: 90%;
+}
+
+.headT p {
+    font-size: 18px;
+    line-height: 26px;
+    font-weight: 600;
+    width: 20%;
+}
+
+.notWelcome {
+    padding-top: 40px;
+    text-align: center;
+}
+
+.notWelcome h2 {
+    margin-top: 30px;
+    font-size: 32px;
+    line-height: 38px;
+    text-align: center;
+    color: rgb(200, 161, 128);
+}
+
+.notWelcome button {
+    background: rgb(49, 49, 49);
+    font-weight: 700;
+    color: #fff;
+    transition: .34s;
+    border: none;
+    outline: none;
+    margin-top: 30px;
+    font-size: 20px;
+}
+
+.notWelcome button:hover {
+    transform: scale(1.14);
+    filter: brightness(120%);
+}
+
+
+.loading {
+    margin: 20px auto;
+    text-align: center;
+    width: 90%;
+}
+
+.loading p {
+    margin-top: 20px;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+@media (max-width: 900px) {
+    .sort {
+        width: 90%;
+    }
+
+    .tableContainer {
+        overflow: scroll;
+    }
+
+    .reviewTable,
+    .recordTable {
+        min-width: 900px;
+    }
+
+    .head {
+        width: 100%;
+    }
+
+    .head h2 {
+        width: 60%;
+        text-align: left;
+    }
+}
+
+@media (max-width: 570px) {
+    .sort {
+        width: 100%;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+
+    .head {
+        flex-direction: column;
+        gap: 25px;
+        align-items: start;
+    }
+
+    .head h2 {
+        text-align: center;
+        width: 100%;
+    }
+}

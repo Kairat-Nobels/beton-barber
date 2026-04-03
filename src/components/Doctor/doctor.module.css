@@ -1,0 +1,61 @@
+.card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    padding: 16px 18px;
+    border-radius: 16px;
+    background: #202020;
+    border: 1px solid rgba(212, 175, 55, 0.1);
+    transition: 0.3s;
+}
+
+.card+.card {
+    margin-top: 14px;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+    border-color: rgba(212, 175, 55, 0.35);
+    background: #242424;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.name {
+    margin: 0;
+    font-weight: 700;
+    font-size: 17px;
+    line-height: 1.5;
+    color: #ffffff;
+    letter-spacing: 0.02em;
+}
+
+.post {
+    margin: 0;
+    font-size: 13px;
+    font-weight: 600;
+    color: #d4af37;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+}
+
+/* mobile */
+
+@media (max-width: 560px) {
+    .card {
+        padding: 14px 14px;
+    }
+
+    .name {
+        font-size: 16px;
+    }
+
+    .post {
+        font-size: 12px;
+    }
+}

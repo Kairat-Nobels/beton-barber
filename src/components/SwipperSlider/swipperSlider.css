@@ -1,0 +1,43 @@
+.swiper_container {
+    padding: 20px 50px 40px;
+    z-index: 0;
+}
+
+.slider-controler .slider-arrow::after {
+    font-weight: 900;
+
+}
+
+.slider h2 {
+    text-align: center;
+    font-size: 32px;
+    line-height: 38px;
+}
+
+@media (max-width: 900px) {}
+
+@media (max-width: 475px) {
+    .slider h2 {
+        font-size: 26px;
+        line-height: 32px;
+        text-align: center;
+    }
+
+    .swiper_container {
+        margin-top: 10px;
+        padding: 20px 20px 40px;
+        z-index: 0;
+    }
+
+    .slider-arrow::after {
+        width: 40px;
+    }
+
+    .swiper-button-next {
+        margin-right: -15px;
+    }
+
+    .swiper-button-prev {
+        margin-left: -8px;
+    }
+}
