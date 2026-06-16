@@ -1,128 +1,271 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { employersApi } from "../../api/api";
-import { toast } from "react-toastify";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
+import { employersApi, barberApi } from "../../api/api"
+import { toast } from "react-toastify"
+
+const makeLogin = (name = "") => {
+    return name
+        .trim()
+        .toLowerCase()
+        .replace(/\s+/g, "_")
+}
 
 // GET
 export const getDoctors = createAsyncThunk(
     "getDoctors",
     async (_, { rejectWithValue }) => {
         try {
-            const response = await fetch(employersApi);
-            if (!response.ok) throw new Error(`Error: ${response.status}`);
-            return await response.json();
+            const response = await fetch(employersApi)
+
+            if (!response.ok) {
+                throw new Error(`Error: ${response.status}`)
+            }
+
+            return await response.json()
         } catch (error) {
-            return rejectWithValue(error.message);
+            return rejectWithValue(error.message)
         }
     }
-);
+)
 
 // CREATE
 export const createDoctor = createAsyncThunk(
     "createDoctor",
     async (newDoctor, { rejectWithValue }) => {
         try {
-            const response = await fetch(employersApi, {
+            const doctorResponse = await fetch(employersApi, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(newDoctor),
-            });
-            if (!response.ok) throw new Error(`Error: ${response.status}`);
-            return await response.json();
+            })
+
+            if (!doctorResponse.ok) {
+                throw new Error(`Error: ${doctorResponse.status}`)
+            }
+
+            const createdDoctor = await doctorResponse.json()
+
+            const barberAccess = {
+                employeeId: createdDoctor.id,
+                name: createdDoctor.name,
+                login: makeLogin(createdDoctor.name),
+                password: "barber",
+                post: createdDoctor.post,
+            }
+
+            const barberResponse = await fetch(barberApi, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(barberAccess),
+            })
+
+            if (!barberResponse.ok) {
+                throw new Error(`Barber access error: ${barberResponse.status}`)
+            }
+
+            return createdDoctor
         } catch (error) {
-            toast.error("Ошибка при добавлении мастера");
-            return rejectWithValue(error.message);
+            toast.error("Ошибка при добавлении мастера")
+            return rejectWithValue(error.message)
         }
     }
-);
+)
 
-// UPDATE (через PATCH)
+// UPDATE
 export const updateDoctor = createAsyncThunk(
     "updateDoctor",
     async ({ id, updatedData }, { rejectWithValue }) => {
         try {
-            const response = await fetch(`${employersApi}/${id}`, {
+            const doctorResponse = await fetch(`${employersApi}/${id}`, {
                 method: "PATCH",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(updatedData),
-            });
-            if (!response.ok) throw new Error(`Error: ${response.status}`);
-            return await response.json();
+            })
+
+            if (!doctorResponse.ok) {
+                throw new Error(`Error: ${doctorResponse.status}`)
+            }
+
+            const updatedDoctor = await doctorResponse.json()
+
+            const barbersResponse = await fetch(barberApi)
+
+            if (!barbersResponse.ok) {
+                throw new Error(`Barbers load error: ${barbersResponse.status}`)
+            }
+
+            const barbers = await barbersResponse.json()
+            const relatedBarber = barbers.find(
+                barber => barber.employeeId === updatedDoctor.id
+            )
+
+            const barberAccess = {
+                employeeId: updatedDoctor.id,
+                name: updatedDoctor.name,
+                login: makeLogin(updatedDoctor.name),
+                password: "barber",
+                post: updatedDoctor.post,
+            }
+
+            if (relatedBarber) {
+                const updateBarberResponse = await fetch(`${barberApi}/${relatedBarber.id}`, {
+                    method: "PATCH",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(barberAccess),
+                })
+
+                if (!updateBarberResponse.ok) {
+                    throw new Error(`Barber update error: ${updateBarberResponse.status}`)
+                }
+            } else {
+                const createBarberResponse = await fetch(barberApi, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(barberAccess),
+                })
+
+                if (!createBarberResponse.ok) {
+                    throw new Error(`Barber create error: ${createBarberResponse.status}`)
+                }
+            }
+
+            return updatedDoctor
         } catch (error) {
-            toast.error("Ошибка при обновлении мастера");
-            return rejectWithValue(error.message);
+            toast.error("Ошибка при обновлении мастера")
+            return rejectWithValue(error.message)
         }
     }
-);
+)
 
 // DELETE
 export const deleteDoctor = createAsyncThunk(
     "deleteDoctor",
     async (id, { rejectWithValue }) => {
         try {
-            const response = await fetch(`${employersApi}/${id}`, {
+            const barbersResponse = await fetch(barberApi)
+
+            if (!barbersResponse.ok) {
+                throw new Error(`Barbers load error: ${barbersResponse.status}`)
+            }
+
+            const barbers = await barbersResponse.json()
+            const relatedBarber = barbers.find(
+                barber => barber.employeeId === id
+            )
+
+            if (relatedBarber) {
+                const deleteBarberResponse = await fetch(`${barberApi}/${relatedBarber.id}`, {
+                    method: "DELETE",
+                })
+
+                if (!deleteBarberResponse.ok) {
+                    throw new Error(`Barber delete error: ${deleteBarberResponse.status}`)
+                }
+            }
+
+            const doctorResponse = await fetch(`${employersApi}/${id}`, {
                 method: "DELETE",
-            });
-            if (!response.ok) throw new Error(`Error: ${response.status}`);
-            return id;
+            })
+
+            if (!doctorResponse.ok) {
+                throw new Error(`Error: ${doctorResponse.status}`)
+            }
+
+            return id
         } catch (error) {
-            toast.error("Ошибка при удалении мастера");
-            return rejectWithValue(error.message);
+            toast.error("Ошибка при удалении мастера")
+            return rejectWithValue(error.message)
         }
     }
-);
+)
 
 const doctorsSlice = createSlice({
     name: "doctorsSlice",
+
     initialState: {
         doctors: [],
         loading: false,
         error: null,
     },
+
     extraReducers: builder => {
         builder
-            // GET
             .addCase(getDoctors.pending, state => {
-                state.loading = true;
+                state.loading = true
+                state.error = null
             })
+
             .addCase(getDoctors.fulfilled, (state, action) => {
-                state.loading = false;
-                state.doctors = action.payload;
+                state.loading = false
+                state.doctors = action.payload
+                state.error = null
             })
+
             .addCase(getDoctors.rejected, (state, action) => {
-                state.loading = false;
-                state.error = action.payload;
+                state.loading = false
+                state.error = action.payload
             })
 
-            // CREATE
+            .addCase(createDoctor.pending, state => {
+                state.loading = true
+                state.error = null
+            })
+
             .addCase(createDoctor.fulfilled, (state, action) => {
-                state.doctors.push(action.payload);
-                toast.success("Мастер успешно добавлен");
+                state.loading = false
+                state.doctors.push(action.payload)
+                state.error = null
+                toast.success("Мастер успешно добавлен")
             })
 
-            // UPDATE
+            .addCase(createDoctor.rejected, (state, action) => {
+                state.loading = false
+                state.error = action.payload
+            })
+
+            .addCase(updateDoctor.pending, state => {
+                state.loading = true
+                state.error = null
+            })
+
             .addCase(updateDoctor.fulfilled, (state, action) => {
-                const index = state.doctors.findIndex(doc => doc.id === action.payload.id);
+                state.loading = false
+
+                const index = state.doctors.findIndex(
+                    doc => doc.id === action.payload.id
+                )
+
                 if (index !== -1) {
-                    state.doctors[index] = action.payload;
+                    state.doctors[index] = action.payload
                 }
-                toast.success("Мастер успешно обновлён");
+
+                state.error = null
+                toast.success("Мастер успешно обновлён")
             })
 
-            // DELETE
+            .addCase(updateDoctor.rejected, (state, action) => {
+                state.loading = false
+                state.error = action.payload
+            })
+
+            .addCase(deleteDoctor.pending, state => {
+                state.loading = true
+                state.error = null
+            })
+
             .addCase(deleteDoctor.fulfilled, (state, action) => {
-                state.doctors = state.doctors.filter(doc => doc.id !== action.payload);
-                toast.success("Мастер успешно удалён");
+                state.loading = false
+                state.doctors = state.doctors.filter(
+                    doc => doc.id !== action.payload
+                )
+                state.error = null
+                toast.success("Мастер успешно удалён")
             })
 
-            // Общая ошибка
-            .addMatcher(
-                action => action.type.endsWith("rejected"),
-                (state, action) => {
-                    state.loading = false;
-                    state.error = action.payload;
-                }
-            );
+            .addCase(deleteDoctor.rejected, (state, action) => {
+                state.loading = false
+                state.error = action.payload
+            })
     },
-});
+})
 
-export default doctorsSlice.reducer;
+export default doctorsSlice.reducer

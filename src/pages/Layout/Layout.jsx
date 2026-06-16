@@ -8,6 +8,7 @@ import { getService } from '../../redux/slices/servicesSlice'
 import { getReviews } from '../../redux/slices/reviewsSlice'
 import { getDoctors } from '../../redux/slices/doctorsSlice'
 import logo from '../../assets/logo.png'
+import { getBarbers } from '../../redux/slices/barberSlice'
 
 function Layout() {
     const [modal, setModal] = useState(false)
@@ -21,6 +22,7 @@ function Layout() {
         dispatch(getService())
         dispatch(getDoctors())
         dispatch(getReviews())
+        dispatch(getBarbers())
     }, [dispatch])
 
     useEffect(() => {
@@ -29,6 +31,16 @@ function Layout() {
             document.body.style.overflow = ''
         }
     }, [burger])
+
+    const handleLoginClick = () => {
+        if (localStorage.getItem('admin') === 'true') {
+            navigate('/admin')
+        } else if (localStorage.getItem('barber') === 'true') {
+            navigate('/barber')
+        } else {
+            setModal(true)
+        }
+    }
 
     return (
         <>
@@ -126,15 +138,9 @@ function Layout() {
                             <div>
                                 <button
                                     className={styles.adminBtn}
-                                    onClick={() => {
-                                        if (localStorage.getItem('admin') === 'true') {
-                                            navigate('/admin')
-                                        } else {
-                                            setModal(true)
-                                        }
-                                    }}
+                                    onClick={handleLoginClick}
                                 >
-                                    Админ-панель
+                                    Войти
                                 </button>
                             </div>
 
@@ -193,6 +199,7 @@ function Layout() {
                                                     Главная
                                                 </NavLink>
                                             </li>
+
                                             <li>
                                                 <NavLink
                                                     onClick={() => setBurger(false)}
@@ -204,6 +211,7 @@ function Layout() {
                                                     Услуги
                                                 </NavLink>
                                             </li>
+
                                             <li>
                                                 <NavLink
                                                     onClick={() => setBurger(false)}
@@ -215,6 +223,7 @@ function Layout() {
                                                     Барберы
                                                 </NavLink>
                                             </li>
+
                                             <li>
                                                 <NavLink
                                                     onClick={() => setBurger(false)}
@@ -243,15 +252,11 @@ function Layout() {
                                                 <button
                                                     className={styles.mobileAdminBtn}
                                                     onClick={() => {
-                                                        if (localStorage.getItem('admin') === 'true') {
-                                                            navigate('/admin')
-                                                        } else {
-                                                            setModal(true)
-                                                        }
+                                                        handleLoginClick()
                                                         setBurger(false)
                                                     }}
                                                 >
-                                                    Админ-панель
+                                                    Войти
                                                 </button>
                                             </li>
                                         </ul>

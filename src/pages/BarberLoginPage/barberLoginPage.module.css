@@ -1,0 +1,135 @@
+.page {
+  min-height: 100vh;
+  background: #0f0f0f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.form {
+  width: 100%;
+  max-width: 430px;
+  background: #161616;
+  border: 1px solid rgba(212, 175, 55, 0.16);
+  border-radius: 24px;
+  padding: 34px 26px 28px;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.label {
+  text-align: center;
+  color: #d4af37;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.form h1 {
+  margin: 0;
+  color: #ffffff;
+  text-align: center;
+  font-size: 30px;
+  line-height: 1.15;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.form p {
+  margin: -4px 0 4px;
+  color: #bdbdbd;
+  text-align: center;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.field label {
+  color: #d4af37;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.field input {
+  width: 100%;
+  height: 48px;
+  background: #202020;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 12px;
+  color: #f3f3f3;
+  padding: 0 14px;
+  font-size: 14px;
+}
+
+.field input:focus {
+  outline: none;
+  border-color: #d4af37;
+  background: #252525;
+}
+
+.error {
+  color: #ff7b7b;
+  background: rgba(255, 123, 123, 0.08);
+  border: 1px solid rgba(255, 123, 123, 0.18);
+  padding: 12px 14px;
+  border-radius: 12px;
+  font-size: 14px;
+  text-align: center;
+}
+
+.form button {
+  height: 50px;
+  border-radius: 12px;
+  background: #d4af37;
+  color: #111111;
+  border: 1px solid #d4af37;
+  font-size: 15px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.form button:hover:not(:disabled) {
+  background: transparent;
+  color: #d4af37;
+}
+
+.form button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.backLink {
+  color: #bdbdbd;
+  text-align: center;
+  font-size: 14px;
+  transition: 0.3s;
+}
+
+.backLink:hover {
+  color: #d4af37;
+}
+
+@media (max-width: 480px) {
+  .form {
+    padding: 28px 18px 24px;
+    border-radius: 18px;
+  }
+
+  .form h1 {
+    font-size: 24px;
+  }
+}
